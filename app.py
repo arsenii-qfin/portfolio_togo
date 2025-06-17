@@ -35,6 +35,11 @@ app.layout=dmc.MantineProvider(
         dcc.Store(id='fetched_data_store', storage_type='session'), # ---> dict(portfolio_data)
         dcc.Store(id='S&P_data_store', storage_type='session'), # ---> dict(spy_store_df)
         dcc.Store(id='quiz_data', storage_type='memory'), # ---> dict(quiz_batch)
+        dcc.Graph(
+            id='plotly-preload',
+            figure=px.line(x=[0, 1], y=[0, 1]),
+            style={'display': 'none'}
+        ),
         dmc.AppShell(
             children=[
                 dmc.AppShellMain(
@@ -258,7 +263,6 @@ app.layout=dmc.MantineProvider(
                                                                                 },
                                                                             ],
                                                                             style_table={
-                                                                                #'overflowX': 'auto',
                                                                                 'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)'
                                                                             },
                                                                             style_header={'padding': '6px', 'fontWeight': '700', 'textAlign': 'center', 'textDecoration': 'underline'},
