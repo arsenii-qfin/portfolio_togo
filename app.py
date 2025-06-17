@@ -75,6 +75,7 @@ app.layout=dmc.MantineProvider(
                                     value='tab-0',
                                     children=[
                                         dmc.Box(
+                                            style={"maxWidth": "100%", "overflowX": "hidden"},
                                             pt={'base':'0.5rem', 'sm':'2rem'},
                                             children=[
                                                 dmc.Stack(
@@ -257,7 +258,7 @@ app.layout=dmc.MantineProvider(
                                                                                 },
                                                                             ],
                                                                             style_table={
-                                                                                'overflowX': 'auto',
+                                                                                #'overflowX': 'auto',
                                                                                 'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)'
                                                                             },
                                                                             style_header={'padding': '6px', 'fontWeight': '700', 'textAlign': 'center', 'textDecoration': 'underline'},
