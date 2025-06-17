@@ -61,25 +61,24 @@ app.layout=dmc.MantineProvider(
                             autoContrast=True,
                             children=[
                                 dmc.TabsList(
-                                    grow=True, #NOTE
+                                    grow=True,
                                     display='-ms-inline-flexbox',
                                     style={'borderTop': '2px solid black'},
                                     h={'base': '3rem', 'md': '4rem', 'lg': '4rem'},
                                     children=[ 
-                                        dmc.TabsTab(value='tab-0', children=[dmc.Title('Main', order=3, style={'fontFamily': 'Roboto', "fontSize": "clamp(0.8rem, 4vw, 1.5rem)"})], leftSection=DashIconify(icon='rivet-icons:home-solid', style={"width": "clamp(0.9rem, 4vw, 1.5rem)", "height": "clamp(0.9rem, 4vw, 1.5rem)"})),
-                                        dmc.TabsTab(value='tab-1', children=[dmc.Title('Analysis', order=3, style={'fontFamily': 'Roboto', "fontSize": "clamp(0.8rem, 4vw, 1.5rem)"})], leftSection=DashIconify(icon='mdi:performance', style={"width": "clamp(0.9rem, 4vw, 1.5rem)", "height": "clamp(0.9rem, 4vw, 1.5rem)"})),
-                                        dmc.TabsTab(value='tab-2', children=[dmc.Title('Monte Carlo', order=3, style={'fontFamily': 'Roboto', "fontSize": "clamp(0.8rem, 4vw, 1.5rem)"})], leftSection=DashIconify(icon='mdi:graph', rotate=3, style={"width": "clamp(0.9rem, 4vw, 1.5rem)", "height": "clamp(0.9rem, 4vw, 1.5rem)"}))
+                                        dmc.TabsTab(value='tab-0', children=[dmc.Title('Main', order=3, style={'fontFamily': 'Roboto', "fontSize": "clamp(0.8rem, 4vw, 1.5rem)"})], leftSection=DashIconify(icon='rivet-icons:home-solid', style={"width": "clamp(0.9rem, 4vw, 1.5rem)", "height": "clamp(0.9rem, 4vh, 1.5rem)"})),
+                                        dmc.TabsTab(value='tab-1', children=[dmc.Title('Analysis', order=3, style={'fontFamily': 'Roboto', "fontSize": "clamp(0.8rem, 4vw, 1.5rem)"})], leftSection=DashIconify(icon='mdi:performance', style={"width": "clamp(0.9rem, 4vw, 1.5rem)", "height": "clamp(0.9rem, 4vh, 1.5rem)"})),
+                                        dmc.TabsTab(value='tab-2', children=[dmc.Title('Monte Carlo', order=3, style={'fontFamily': 'Roboto', "fontSize": "clamp(0.8rem, 4vw, 1.5rem)"})], leftSection=DashIconify(icon='mdi:graph', rotate=3, style={"width": "clamp(0.9rem, 4vw, 1.5rem)", "height": "clamp(0.9rem, 4vh, 1.5rem)"}))
                                     ]
                                 ),
                                 dmc.TabsPanel(
                                     value='tab-0',
                                     children=[
                                         dmc.Box(
-                                            pt='2rem',
+                                            pt={'base':'0.5rem', 'sm':'2rem'},
                                             children=[
                                                 dmc.Stack(
                                                     py='1rem',
-                                                    justify='center',
                                                     style={'height': '100%'},
                                                     gap='lg',
                                                     children=[
@@ -89,8 +88,9 @@ app.layout=dmc.MantineProvider(
                                                             gutter=0,
                                                             children=[
                                                                 dmc.GridCol(
-                                                                    span=4,
+                                                                    span={"base": 12, "sm": 12, 'md':12, 'lg':4},
                                                                     px='md',
+                                                                    mb='md',
                                                                     children=[
                                                                         dmc.Paper(
                                                                             style={'width':'100%'},
@@ -98,15 +98,16 @@ app.layout=dmc.MantineProvider(
                                                                             shadow='sm',
                                                                             p='md',
                                                                             children=[
-                                                                                dmc.Text('What is It?', c='dimmed', style={'textAlign': 'center', 'fontSize': '2rem', 'fontWeight': '500', 'color': 'grey'}),
+                                                                                dmc.Text('What is It?', c='dimmed', style={'textAlign': 'center', 'fontSize': "clamp(1rem, 5.5vw, 1.75rem)", 'fontWeight': '500', 'color': 'grey'}),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%'),
-                                                                                dmc.Text(left_scroll_text, c='dimmed', style={'fontSize': '1.25rem', 'fontFamily': 'Roboto'})
+                                                                                dmc.Text(left_scroll_text, c='dimmed', style={'fontSize': 'clamp(0.7rem, 3.5vw, 1.25rem)', 'fontFamily': 'Roboto'})
                                                                             ]
                                                                         )
                                                                     ]
                                                                 ),
                                                                 dmc.GridCol(
-                                                                    span=4,
+                                                                    span={"base": 12, "sm": 12, 'md':12, 'lg':4},
+                                                                    pb='md',
                                                                     children=[
                                                                         dmc.Carousel(
                                                                             id='quiz_carousel',
@@ -118,7 +119,7 @@ app.layout=dmc.MantineProvider(
                                                                     ]
                                                                 ),
                                                                 dmc.GridCol(
-                                                                    span=4,
+                                                                    span={"base": 12, "sm": 12, 'md':12, 'lg':4},
                                                                     px='md',
                                                                     children=[
                                                                         dmc.Paper(
@@ -127,9 +128,9 @@ app.layout=dmc.MantineProvider(
                                                                             shadow='sm',
                                                                             p='md',
                                                                             children=[
-                                                                                dmc.Text('How to Use?', c='dimmed', style={'textAlign': 'center', 'fontSize': '2rem', 'fontWeight': '500', 'color': 'grey'}),
+                                                                                dmc.Text('How to Use?', c='dimmed', style={'textAlign': 'center', 'fontSize': "clamp(1rem, 5.5vw, 1.75rem)", 'fontWeight': '500', 'color': 'grey'}),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%'),
-                                                                                dmc.Text(right_scroll_text, c='dimmed', style={'fontSize': '1.25rem', 'fontFamily': 'Roboto'})
+                                                                                dmc.Text(right_scroll_text, c='dimmed', style={'fontSize': 'clamp(0.7rem, 3.5vw, 1.25rem)', 'fontFamily': 'Roboto'})
                                                                             ]
                                                                         )
                                                                     ]
@@ -139,15 +140,17 @@ app.layout=dmc.MantineProvider(
                                                         dmc.Divider(label='Input Tickers Below', labelPosition='center', variant='solid', size='sm', color='blue', w='100%'),
                                                         dmc.Grid(
                                                             justify='center',
-                                                            gutter='md',
-                                                            overflow='hidden',
+                                                            align='center',
+                                                            gutter=0,
                                                             children=[
                                                                 dmc.GridCol(
-                                                                    span='content',
+                                                                    span={"base": 12, "sm": 'content'},
+                                                                    px={"base": '0.5rem', "sm": 'lg'},
+                                                                    mb='sm',
                                                                     children=[
                                                                         dmc.DatePickerInput(
                                                                             id='date_picker_range',
-                                                                            size='xl',
+                                                                            size='lg',
                                                                             type='range',
                                                                             valueFormat='YYYY-MM-DD',
                                                                             value=[datetime.now().date() - timedelta(days=30), datetime.now().date()],
@@ -169,7 +172,8 @@ app.layout=dmc.MantineProvider(
                                                                     ]
                                                                 ),
                                                                 dmc.GridCol(
-                                                                    span='content',
+                                                                    span={'base':1, 'sm':'content'},
+                                                                    mr={'base':'sm', 'sm': 'md'},
                                                                     children=[
                                                                         dmc.Stack(
                                                                             justify='center',
@@ -222,7 +226,7 @@ app.layout=dmc.MantineProvider(
                                                                     ]
                                                                 ),        
                                                                 dmc.GridCol(
-                                                                    span=5,
+                                                                    span={'base':'8', 'sm': '5'},
                                                                     children=[
                                                                         dash_table.DataTable(
                                                                             id='ticker_unit_picker_table',
@@ -265,7 +269,8 @@ app.layout=dmc.MantineProvider(
                                                                     ]
                                                                 ),
                                                                 dmc.GridCol(
-                                                                    span='content',
+                                                                    span={'base': 1, 'sm':'content'},
+                                                                    ml={'base':'sm', 'sm': 'md'},
                                                                     children=[
                                                                         dmc.Stack(
                                                                             justify='center',
@@ -297,7 +302,7 @@ app.layout=dmc.MantineProvider(
                                                                                     id='import_table_button',
                                                                                     accept='.csv, .xlsx',
                                                                                     multiple=False,
-                                                                                    max_size=1000000, #1MB
+                                                                                    max_size=1000000, 
                                                                                     children=[
                                                                                         dmc.Tooltip(
                                                                                             color='#fafafa',
@@ -326,14 +331,16 @@ app.layout=dmc.MantineProvider(
                                                                     ]
                                                                 ),
                                                                 dmc.GridCol(
-                                                                    span=2,
+                                                                    span={"base": 'content', "sm": 'content'},
+                                                                    px='md',
+                                                                    my='sm',
                                                                     children=[
                                                                         dmc.Button(
                                                                             id='run_analysis_button',
                                                                             children=['Run Analysis'],
-                                                                            size='xl',
-                                                                            style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)'},
-                                                                            leftSection=DashIconify(icon='material-symbols-light:rocket-launch', style={'height':'2rem', 'width': '2rem'})
+                                                                            size='lg',
+                                                                            style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)', "fontSize": "clamp(1rem, 4vw, 1.2rem)"},
+                                                                            leftSection=DashIconify(icon='material-symbols-light:rocket-launch', style={"width": "clamp(1.2rem, 10vw, 1.7rem)", "height": "clamp(1.2rem, 10vh, 1.7rem)"})
                                                                         )
                                                                     ]
                                                                 )
@@ -349,60 +356,60 @@ app.layout=dmc.MantineProvider(
                                     value='tab-1',
                                     children=[
                                         dmc.Box(
+                                            pt={'base':'0.5rem', 'sm':'2rem'},
                                             children=[
                                                 dmc.Stack(
                                                     p='1rem',
                                                     gap='sm',
                                                     children=[
                                                         dmc.Grid(
-                                                            style={'height':'100%'},
+                                                            justify='center',
+                                                            align='center',
+                                                            gutter='sm',
                                                             children=[
                                                                 dmc.GridCol(
-                                                                    span=6,
-                                                                    style={'borderRight': '2px solid var(--mantine-color-blue-6)'},
+                                                                    span={'base' :12, 'sm': 6},
                                                                     children=[
                                                                         dmc.Stack(
-                                                                            style={'height':'100%'},
                                                                             children=[
                                                                                 dmc.Box(
                                                                                     id='plot_1',
                                                                                     children=[
-                                                                                        dmc.Skeleton(style={'height':'34rem'})
+                                                                                        dmc.Skeleton(style={"height": "clamp(15rem, 30vw, 34rem)"})
                                                                                     ]
                                                                                 ),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%'),
                                                                                 dmc.Group(
                                                                                     justify='center',
                                                                                     children=[
-                                                                                        dmc.Badge('Portfolio vs S&P500', variant='dot', size='xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)'}),
-                                                                                        dmc.Button('Render Figure', id='btn_1', w='15rem', size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)'}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={'height':'2rem', 'width': '2rem'})),
-                                                                                        dmc.ScrollArea(dmc.Text(plot_1, c='black', style={'fontSize': '1rem', 'fontFamily': 'Roboto'}), h='3rem', w='15rem', type='hover', offsetScrollbars='y')
+                                                                                        dmc.Badge('Portfolio vs S&P500', variant='dot', size='xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)', "fontSize": "clamp(0.6rem, 3.5vw, 1rem)"}),
+                                                                                        dmc.Button('Render Figure', id='btn_1', w={"base": "45%", "sm": "12rem"}, size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)', "fontSize": "clamp(0.6rem, 4vw, 1rem)"}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={"width": "clamp(1.2rem, 3.5vw, 2rem)", "height": "clamp(1.2rem, 3.5vw, 2rem)"})),
+                                                                                        dmc.ScrollArea(dmc.Text(plot_1, c='black', style={"fontSize": "clamp(0.75rem, 2.5vw, 1rem)", 'fontFamily': 'Roboto'}), h='3rem', w={"base": "45%", "sm": "12rem", "md": "15rem"}, type='hover', offsetScrollbars='y')
                                                                                     ]
                                                                                 ),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%')
                                                                             ]
-                                                                        )
+                                                                        )  
                                                                     ]
                                                                 ),
                                                                 dmc.GridCol(
-                                                                    span=6,
+                                                                    span={'base' :12, 'sm': 6},
                                                                     children=[
                                                                         dmc.Stack(
-                                                                            style={'height':'100%'},
                                                                             children=[
                                                                                 dmc.Box(
                                                                                     id='plot_2',
                                                                                     children=[
-                                                                                        dmc.Skeleton(style={'height':'34rem'}),
+                                                                                        dmc.Skeleton(style={"height": "clamp(15rem, 30vw, 34rem)"}),
                                                                                     ]
                                                                                 ),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%'),
                                                                                 dmc.Group(
                                                                                     justify='center',
                                                                                     children=[
-                                                                                        dmc.Badge('Returns Heatmap', variant='dot', size='xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)'}),
-                                                                                        dmc.Button('Render Figure', id='btn_2', w='15rem', size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)'}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={'height':'2rem', 'width': '2rem'})),
-                                                                                        dmc.ScrollArea(dmc.Text(plot_2, c='black', style={'fontSize': '1rem', 'fontFamily': 'Roboto'}), h='3rem', w='15rem', type='hover', offsetScrollbars='y')
+                                                                                        dmc.Badge('Returns Heatmap', variant='dot', size='xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)', "fontSize": "clamp(0.6rem, 3.5vw, 1rem)"}),
+                                                                                        dmc.Button('Render Figure', id='btn_2', w={"base": "45%", "sm": "12rem"}, size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)', "fontSize": "clamp(0.6rem, 4vw, 1rem)"}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={"width": "clamp(1.2rem, 3.5vw, 2rem)", "height": "clamp(1.2rem, 3.5vw, 2rem)"})),
+                                                                                        dmc.ScrollArea(dmc.Text(plot_2, c='black', style={'fontSize': "clamp(0.75rem, 2.5vw, 1rem)", 'fontFamily': 'Roboto'}), h='3rem', w={"base": "45%", "sm": "12rem", "md": "15rem"}, type='hover', offsetScrollbars='y')
                                                                                     ]
                                                                                 ),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%')
@@ -413,28 +420,28 @@ app.layout=dmc.MantineProvider(
                                                             ]
                                                         ),
                                                         dmc.Grid(
-                                                            style={'height':'100%'},
+                                                            justify='center',
+                                                            align='center',
+                                                            gutter='sm',
                                                             children=[
                                                                 dmc.GridCol(
-                                                                    span=6,
-                                                                    style={'borderRight': '2px solid var(--mantine-color-blue-6)'},
+                                                                    span={'base' :12, 'sm': 6},
                                                                     children=[
                                                                         dmc.Stack(
-                                                                            style={'height':'100%'},
                                                                             children=[
                                                                                 dmc.Box(
                                                                                     id='plot_3',
                                                                                     children=[
-                                                                                        dmc.Skeleton(style={'height':'34rem'})
+                                                                                        dmc.Skeleton(style={"height": "clamp(15rem, 30vw, 34rem)"})
                                                                                     ]
                                                                                 ),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%'),
                                                                                 dmc.Group(
                                                                                     justify='center',
                                                                                     children=[
-                                                                                        dmc.Badge('Bollinger Bands', variant='dot', size='xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)'}),
-                                                                                        dmc.Button('Render Figure', id='btn_3', w='15rem', size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)'}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={'height':'2rem', 'width': '2rem'})),
-                                                                                        dmc.ScrollArea(dmc.Text(plot_3, c='black', style={'fontSize': '1rem', 'fontFamily': 'Roboto'}), h='3rem', w='15rem', type='hover', offsetScrollbars='y')
+                                                                                        dmc.Badge('Bollinger Bands', variant='dot', size='xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)', "fontSize": "clamp(0.6rem, 3.5vw, 1rem)"}),
+                                                                                        dmc.Button('Render Figure', id='btn_3',w={"base": "45%", "sm": "12rem"}, size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)', "fontSize": "clamp(0.6rem, 4vw, 1rem)"}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={"width": "clamp(1.2rem, 3.5vw, 2rem)", "height": "clamp(1.2rem, 3.5vw, 2rem)"})),
+                                                                                        dmc.ScrollArea(dmc.Text(plot_3, c='black', style={'fontSize': "clamp(0.75rem, 2.5vw, 1rem)", 'fontFamily': 'Roboto'}), h='3rem', w={"base": "45%", "sm": "12rem", "md": "15rem"}, type='hover', offsetScrollbars='y')
                                                                                     ]
                                                                                 ),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%')
@@ -443,24 +450,23 @@ app.layout=dmc.MantineProvider(
                                                                     ]
                                                                 ),
                                                                 dmc.GridCol(
-                                                                    span=6,
+                                                                    span={'base' :12, 'sm': 6},
                                                                     children=[
                                                                         dmc.Stack(
-                                                                            style={'height':'100%'},
                                                                             children=[
                                                                                 dmc.Box(
                                                                                     id='plot_4',
                                                                                     children=[
-                                                                                        dmc.Skeleton(style={'height':'34rem'})
+                                                                                        dmc.Skeleton(style={"height": "clamp(15rem, 30vw, 34rem)"})
                                                                                     ]
                                                                                 ),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%'),
                                                                                 dmc.Group(
                                                                                     justify='center',
                                                                                     children=[
-                                                                                        dmc.Badge('Spider Chart', variant='dot', size='xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)'}),
-                                                                                        dmc.Button('Render Figure', id='btn_4', w='15rem', size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)'}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={'height':'2rem', 'width': '2rem'})),
-                                                                                        dmc.ScrollArea(dmc.Text(plot_4, c='black', style={'fontSize': '1rem', 'fontFamily': 'Roboto'}), h='3rem', w='15rem', type='hover', offsetScrollbars='y')
+                                                                                        dmc.Badge('Spider Chart', variant='dot', size='xl', w={"base": "55%", "sm": "12rem", "md": "15rem"}, style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)', "fontSize": "clamp(0.6rem, 3.5vw, 1rem)"}),
+                                                                                        dmc.Button('Render Figure', id='btn_4', w={"base": "45%", "sm": "12rem"}, size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)', "fontSize": "clamp(0.6rem, 4vw, 1rem)"}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={"width": "clamp(1.2rem, 3.5vw, 2rem)", "height": "clamp(1.2rem, 3.5vw, 2rem)"})),
+                                                                                        dmc.ScrollArea(dmc.Text(plot_4, c='black', style={'fontSize': "clamp(0.75rem, 2.5vw, 1rem)", 'fontFamily': 'Roboto'}), h='3rem', w={"base": "45%", "sm": "12rem", "md": "15rem"}, type='hover', offsetScrollbars='y')
                                                                                     ]
                                                                                 ),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%')
@@ -471,28 +477,28 @@ app.layout=dmc.MantineProvider(
                                                             ]
                                                         ),
                                                         dmc.Grid(
-                                                            style={'height':'100%'},
+                                                            justify='center',
+                                                            align='center',
+                                                            gutter='sm',
                                                             children=[
                                                                 dmc.GridCol(
-                                                                    span=6,
-                                                                    style={'borderRight': '2px solid var(--mantine-color-blue-6)'},
+                                                                    span={'base' :12, 'sm': 6},
                                                                     children=[
                                                                         dmc.Stack(
-                                                                            style={'height':'100%'},
                                                                             children=[
                                                                                 dmc.Box(
                                                                                     id='plot_5',
                                                                                     children=[
-                                                                                        dmc.Skeleton(style={'height':'34rem'})
+                                                                                        dmc.Skeleton(style={"height": "clamp(15rem, 30vw, 34rem)"})
                                                                                     ]
                                                                                 ),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%'),
                                                                                 dmc.Group(
                                                                                     justify='center',
                                                                                     children=[
-                                                                                        dmc.Badge('Value at Risk', variant='dot', size='xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)'}),
-                                                                                        dmc.Button('Render Figure', id='btn_5', w='15rem', size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)'}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={'height':'2rem', 'width': '2rem'})),
-                                                                                        dmc.ScrollArea(dmc.Text(plot_5, c='black', style={'fontSize': '1rem', 'fontFamily': 'Roboto'}), h='3rem', w='15rem', type='hover', offsetScrollbars='y')
+                                                                                        dmc.Badge('Value at Risk', variant='dot', size='xl', w={"base": "55%", "sm": "12rem", "md": "15rem"}, style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)', "fontSize": "clamp(0.6rem, 3.5vw, 1rem)"}),
+                                                                                        dmc.Button('Render Figure', id='btn_5', w={"base": "45%", "sm": "12rem"}, size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)', "fontSize": "clamp(0.6rem, 4vw, 1rem)"}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={"width": "clamp(1.2rem, 3.5vw, 2rem)", "height": "clamp(1.2rem, 3.5vw, 2rem)"})),
+                                                                                        dmc.ScrollArea(dmc.Text(plot_5, c='black', style={'fontSize': "clamp(0.75rem, 2.5vw, 1rem)", 'fontFamily': 'Roboto'}), h='3rem', w={"base": "45%", "sm": "12rem", "md": "15rem"}, type='hover', offsetScrollbars='y')
                                                                                     ]
                                                                                 ),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%')
@@ -501,24 +507,23 @@ app.layout=dmc.MantineProvider(
                                                                     ]
                                                                 ),
                                                                 dmc.GridCol(
-                                                                    span=6,
+                                                                    span={'base' :12, 'sm': 6},
                                                                     children=[
                                                                         dmc.Stack(
-                                                                            style={'height':'100%'},
                                                                             children=[
                                                                                 dmc.Box(
                                                                                     id='plot_6',
                                                                                     children=[
-                                                                                        dmc.Skeleton(style={'height':'34rem'})
+                                                                                        dmc.Skeleton(style={"height": "clamp(15rem, 30vw, 34rem)"})
                                                                                     ]
                                                                                 ),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%'),
                                                                                 dmc.Group(
                                                                                     justify='center',
                                                                                     children=[
-                                                                                        dmc.Badge('Correlation Heatmap', variant='dot', size='xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)'}),
-                                                                                        dmc.Button('Render Figure', id='btn_6', w='15rem', size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)'}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={'height':'2rem', 'width': '2rem'})),
-                                                                                        dmc.ScrollArea(dmc.Text(plot_6, c='black', style={'fontSize': '1rem', 'fontFamily': 'Roboto'}), h='3rem', w='15rem', type='hover', offsetScrollbars='y')
+                                                                                        dmc.Badge('Correlation Heatmap', variant='dot', size='xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)', "fontSize": "clamp(0.6rem, 3.5vw, 1rem)"}),
+                                                                                        dmc.Button('Render Figure', id='btn_6', w={"base": "45%", "sm": "12rem"}, size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)', "fontSize": "clamp(0.6rem, 4vw, 1rem)"}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={"width": "clamp(1.2rem, 3.5vw, 2rem)", "height": "clamp(1.2rem, 3.5vw, 2rem)"})),
+                                                                                        dmc.ScrollArea(dmc.Text(plot_6, c='black', style={'fontSize': "clamp(0.75rem, 2.5vw, 1rem)", 'fontFamily': 'Roboto'}), h='3rem', w={"base": "45%", "sm": "12rem", "md": "15rem"}, type='hover', offsetScrollbars='y')
                                                                                     ]
                                                                                 ),
                                                                                 dmc.Divider(variant='solid', size='sm', color='blue', w='100%')
@@ -538,40 +543,38 @@ app.layout=dmc.MantineProvider(
                                     value='tab-2',
                                     children=[
                                         dmc.Box(
+                                            pt={'base':'0.5rem', 'sm':'2rem'},
                                             children=[
                                                 dmc.Stack(
-                                                    style={'height':'100%'},
                                                     children=[
                                                         dmc.Box(
                                                             id='plot_7',
                                                             p={'base': '0.5rem', 'md': '1rem', 'lg': '1.5rem'},
                                                             children=[
-                                                                dmc.Skeleton(
-                                                                    style={'height':'55rem'}
-                                                                )
+                                                                dmc.Skeleton(style={"height": "clamp(25rem, 67vw, 55rem)"})
                                                             ]
                                                         ),
                                                         dmc.Divider(variant='solid', size='sm', color='blue', w='100%'),
                                                         dmc.Group(
                                                             justify='center',
-                                                            gap='xl',
+                                                            gap={'base': 'sm', 'md':'xl'},
                                                             my={'base': '0.5rem', 'md': '1rem', 'lg': '1.5rem'},
                                                             children=[
+                                                                dmc.Badge('Monte Carlo Simulation', variant='dot', size='xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)'}),
                                                                 dmc.Group(
                                                                     children=[
                                                                         dmc.Text('# of days', c='grey'),
-                                                                        dmc.Slider(id='n_days', color='blue', radius='lg', showLabelOnHover=True, min=10, max=200, step=1, size='lg', w='15rem', value=50, marks=[{'value': 40, 'label': '20%'}, {'value': 100, "label": '50%'},{'value': 160, 'label': '80%'}])
+                                                                        dmc.Slider(id='n_days', color='blue', radius='lg', showLabelOnHover=True, min=10, max=200, step=1, size='lg', w='15rem', value=50)
                                                                     ]
                                                                 ),
                                                                 dmc.Group(
                                                                     children=[
-                                                                        dmc.Text('# of simulations', c='grey'),
-                                                                        dmc.Slider(id='n_simulations', color='blue', radius='lg', showLabelOnHover=True, min=10, max=200, step=1, size='lg', w='15rem', value=50, marks=[{'value': 40, 'label': '20%'}, {'value': 100, "label": '50%'},{'value': 160, 'label': '80%'}])
+                                                                        dmc.Text('# of trials', c='grey'),
+                                                                        dmc.Slider(id='n_simulations', color='blue', radius='lg', showLabelOnHover=True, min=10, max=200, step=1, size='lg', w='15rem', value=50)
                                                                     ]
                                                                 ),
-                                                                dmc.Badge('Monte Carlo Simulation', variant='dot', size='xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.2)'}),
-                                                                dmc.Button('Render Figure', id='btn_7', w='15rem', size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)'}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={'height':'2rem', 'width': '2rem'})),
-                                                                dmc.ScrollArea(dmc.Text(plot_7, c='black', style={'fontSize': '1rem', 'fontFamily': 'Roboto'}), h='4rem', w='15rem', type='hover', offsetScrollbars='y')
+                                                                dmc.Button('Render Figure', id='btn_7', w={"base": "45%", "sm": "12rem"}, size='compact-xl', style={'boxShadow': '2px 2px 8px rgba(0, 0, 0, 0.3)', "fontSize": "clamp(0.6rem, 4vw, 1rem)"}, leftSection=DashIconify(icon='svg-spinners:gooey-balls-2', style={"width": "clamp(1.2rem, 3.5vw, 2rem)", "height": "clamp(1.2rem, 3.5vw, 2rem)"})),
+                                                                dmc.ScrollArea(dmc.Text(plot_7, c='black', style={'fontSize': "clamp(0.75rem, 2.5vw, 1rem)", 'fontFamily': 'Roboto'}), h='3rem', w={"base": "45%", "sm": "12rem", "md": "15rem"}, type='hover', offsetScrollbars='y')
                                                             ]
                                                         )
                                                     ]
@@ -797,9 +800,9 @@ def returns_vs_spy(_, portfolio_data, date_range):
     combined_df = combined_df.reset_index()
     
     fig = px.line(combined_df, x='Date', y=['Portfolio', 'S&P500'],template='plotly_white', line_shape='spline')
-    fig.update_layout(xaxis_title=None, yaxis_title=None, showlegend=False, margin=dict(t=10, l=10, r=10, b=10), height=544)
+    fig.update_layout(xaxis_title=None, yaxis_title=None, showlegend=False, margin=dict(t=10, l=10, r=10, b=10))
     fig.update_traces(line={'dash':'dot'}, selector={'name':'S&P500'})
-    return spy_store_df, dcc.Graph(figure=fig)
+    return spy_store_df, dcc.Graph(figure=fig, style={"height": "clamp(15rem, 30vw, 34rem)"})
 
 #graph 2
 @callback(
@@ -835,9 +838,9 @@ def returns_heatmap(_, portfolio_data):
     heatmap_df = heatmap_df.pivot(index='Ticker', columns='Weekday', values='Return').copy()
     
     fig = px.imshow(heatmap_df, x=weekdays, y=heatmap_df.index, color_continuous_scale='RdYlGn', text_auto='.2f')
-    fig.update_layout(xaxis_title=None, yaxis_title=None, margin=dict(t=10, l=10, r=10, b=10), height=544)
+    fig.update_layout(xaxis_title=None, yaxis_title=None, margin=dict(t=10, l=10, r=10, b=10))
     fig.update_xaxes(side='top')
-    return dcc.Graph(figure=fig)
+    return dcc.Graph(figure=fig, style={"height": "clamp(15rem, 30vw, 34rem)"})
 
 #graph 3
 @callback(
@@ -868,12 +871,12 @@ def bollinger_bands(_, portfolio_data, window=10, _std=1):
     portfolio_df = portfolio_df.reset_index()[['Date', 'Portfolio', 'SMA', 'Upper', 'Lower']]
 
     fig = px.line(portfolio_df, x='Date', y=['Portfolio', 'SMA', 'Upper', 'Lower'], template='plotly_white', line_shape='spline')
-    fig.update_layout(xaxis_title=None, yaxis_title=None, showlegend=False, margin=dict(t=10, l=10, r=10, b=10), height=544)
+    fig.update_layout(xaxis_title=None, yaxis_title=None, showlegend=False, margin=dict(t=10, l=10, r=10, b=10))
     fig.update_traces(line={'dash':'dot'}, selector={'name':'SMA'})
     fig.update_traces(line={'color': 'green'}, selector={'name': 'Upper'})  
     fig.update_traces(line={'color': 'red'}, selector={'name': 'Lower'})
     fig.update_traces(line={'color': 'black'}, selector={'name': 'SMA'})
-    return dcc.Graph(figure=fig)
+    return dcc.Graph(figure=fig,  style={"height": "clamp(15rem, 30vw, 34rem)"})
 
 #graph 4
 @callback(
@@ -917,10 +920,10 @@ def spider_chart(_, portfolio_data, spy_store_df):
     stats = {'Return': _return, 'Volatility': _std, 'Downward STD': _downstd, 'Max Drawdown': _maxdrawdown, 'S&P500': _spy, 'Alpha': _alpha}
     line_polar = pd.DataFrame({'Stat' : list(stats.keys()), 'Value': list(stats.values())})
     fig = px.line_polar(line_polar, r='Value', theta='Stat', markers=True, line_close=True, template='ggplot2')
-    fig.update_layout(margin=dict(t=20, l=20, r=20, b=20), height=544)
+    fig.update_layout(margin=dict(t=20, l=20, r=20, b=20))
     fig.update_traces(fill='toself')
     fig.update_traces(line=dict(color='red', width=3), marker=dict(size=8, color='black'))
-    return dcc.Graph(figure=fig)
+    return dcc.Graph(figure=fig, style={"height": "clamp(15rem, 30vw, 34rem)"})
 
 #graph 5
 @callback(
@@ -958,9 +961,9 @@ def value_at_risk(_, portfolio_data):
     long_df = df.melt(var_name='VaR Type', value_name='VaR (%)')
     
     fig = px.bar(long_df, x='VaR Type', y='VaR (%)', template='plotly_white', barmode='group')
-    fig.update_layout(xaxis_title=None, yaxis_title=None, margin=dict(t=20, l=20, r=20, b=20), height=544)
+    fig.update_layout(xaxis_title=None, yaxis_title=None, margin=dict(t=20, l=20, r=20, b=20))
     fig.update_traces(marker_color=['#A7C7E7', '#F2D8A7', '#F2DFEB', '#B0E0A8'], marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
-    return dcc.Graph(figure=fig)
+    return dcc.Graph(figure=fig, style={"height": "clamp(15rem, 30vw, 34rem)"})
 
 #graph 6
 @callback(
@@ -982,9 +985,9 @@ def correlation_mtx(_, portfolio_data):
     correlation_mtx = portfolio_ret.corr()
 
     fig = px.imshow(correlation_mtx, color_continuous_scale='RdBu', range_color=[-1,1], text_auto='.2f')
-    fig.update_layout(xaxis_title=None, yaxis_title=None, margin=dict(t=10, l=10, r=10, b=10), height=544)
+    fig.update_layout(xaxis_title=None, yaxis_title=None, margin=dict(t=10, l=10, r=10, b=10))
     fig.update_xaxes(side='top')
-    return dcc.Graph(figure=fig)
+    return dcc.Graph(figure=fig, style={"height": "clamp(15rem, 30vw, 34rem)"})
 
 #plot 7
 @callback(
@@ -1019,9 +1022,9 @@ def monte_carlo(_, n_simulations, n_days, portfolio_data):
         simulated_paths[f'Sim_Path_{i+1}'] = simulated_path
 
     fig = px.line(simulated_paths, template='plotly_white')
-    fig.update_layout(xaxis_title='Simulation Day', yaxis_title='Normalized Portfolio Value', margin=dict(t=10, l=10, r=10, b=10), showlegend=False, height=880)
-    return dcc.Graph(figure=fig, style={'height': '100%', 'minHeight':'50vh'})
+    fig.update_layout(xaxis_title='Simulation Day', yaxis_title='Normalized Portfolio Value', margin=dict(t=10, l=10, r=10, b=10), showlegend=False)
+    return dcc.Graph(figure=fig, style={"height": "clamp(25rem, 67vw, 55rem)"})
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
